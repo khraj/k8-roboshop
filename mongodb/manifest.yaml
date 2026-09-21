@@ -29,17 +29,15 @@ spec:
         image: 9959087127/mongodb:v1
         imagePullPolicy: Always
         readinessProbe:
-          httpGet:
-            path: /health
-            port: 27017
-          failureThreshold: 1
-          periodSeconds: 15
+          tcpSocket:
+            port: 6379
+          initialDelaySeconds: 10
+          periodSeconds: 10
         livenessProbe:
-          httpGet:
-            path: /health
-            port: 27017
-          failureThreshold: 1
-          periodSeconds: 15
+          tcpSocket:
+            port: 6379
+          initialDelaySeconds: 10
+          periodSeconds: 10
 
 ---
 
@@ -56,5 +54,5 @@ spec:
     environment: development
   ports:
   - protocol: TCP
-    port: 27010 # service port
-    targetPort: 27017   #container port
+    port: 6379 # service port
+    targetPort: 6379   #container port
