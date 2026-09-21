@@ -29,18 +29,15 @@ spec:
         image: redis:7.0
         imagePullPolicy: Always
         readinessProbe:
-          httpGet:
-            path: /health
+          tcpSocket:
             port: 6379
-          failureThreshold: 1
-          periodSeconds: 15
+          initialDelaySeconds: 10
+          periodSeconds: 10
         livenessProbe:
-          httpGet:
-            path: /health
+          tcpSocket:
             port: 6379
-          failureThreshold: 1
-          periodSeconds: 15
-
+          initialDelaySeconds: 10
+          periodSeconds: 10
 ---
 
 apiVersion: v1
