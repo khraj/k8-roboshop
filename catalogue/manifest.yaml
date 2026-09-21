@@ -5,7 +5,7 @@ metadata:
   namespace: roboshop
   labels:
     project: roboshop
-    component: mongodb
+    component: catalogue
     tier: backend
     environment: development
 spec:
@@ -13,32 +13,32 @@ spec:
   selector:
     matchLabels:
       project: roboshop
-      component: mongodb
+      component: catalogue
       tier: backend
       environment: development
   template:
     metadata:
       labels:
         project: roboshop
-        component: mongodb
+        component: catalogue
         tier: backend
         environment: development
-      spec:
-        containers:
-        - name: catalogue
-          image: 9959087127/catalogue:v1
-          readinessProbe:
-            httpGet:
-              path: /health
-              port: 8080
-            failureThreshold: 1
-            periodSeconds: 15
-          livenessProbe:
-            httpGet:
-              path: /health
-              port: 8080
-            failureThreshold: 1
-            periodSeconds: 15
+    spec:
+      containers:
+      - name: catalogue
+        image: 9959087127/catalogue:v1
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          failureThreshold: 1
+          periodSeconds: 15
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          failureThreshold: 1
+          periodSeconds: 15
 
 --- 
 
@@ -50,7 +50,7 @@ metadata:
 spec:
   selector:
     project: roboshop
-    component: mongodb
+    component: catalogue
     tier: backend
     environment: development
   ports:
