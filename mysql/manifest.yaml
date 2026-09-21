@@ -49,8 +49,8 @@ spec:
         livenessProbe:
           tcpSocket:
             port: 3306
-          initialDelaySeconds: 10
-          periodSeconds: 10
+          initialDelaySeconds: 20
+          periodSeconds: 20
 
 ---
 
