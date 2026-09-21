@@ -50,7 +50,7 @@ spec:
           tcpSocket:
             port: 3306
           initialDelaySeconds: 20
-          periodSeconds: 20
+          periodSeconds: 5
 
 ---
 
