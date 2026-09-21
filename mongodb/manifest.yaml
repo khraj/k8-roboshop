@@ -25,4 +25,4 @@ spec:
     spec:
       containers:
       - name: mongodb
-        image: 9959087127/mongodb
+        image: 9959087127/mongodb:v1
