@@ -28,15 +28,17 @@ spec:
       - name: mongodb
         image: 9959087127/mongodb:v1
         readinessProbe:
-          tcpSocket:
+          httpGet:
+            path: /health
             port: 27017
-          initialDelaySeconds: 10
-          periodSeconds: 10
+          failureThreshold: 1
+          periodSeconds: 15
         livenessProbe:
-          tcpSocket:
+          httpGet:
+            path: /health
             port: 27017
-          initialDelaySeconds: 5
-          periodSeconds: 5
+          failureThreshold: 1
+          periodSeconds: 15
 
 ---
 
