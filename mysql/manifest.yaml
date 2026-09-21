@@ -38,6 +38,7 @@ spec:
             port: 3306
           initialDelaySeconds: 10
           periodSeconds: 10
+
 ---
 
 apiVersion: v1
